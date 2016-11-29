@@ -1,0 +1,99 @@
+<mvc:View 
+	controllerName="de.tammenit.ui5.training.controller.OrderDetails" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:core="sap.ui.core" xmlns:forms="sap.ui.layout.form"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:uxap="sap.uxap" xmlns:smart="sap.ui.comp.smartfield" xmlns="sap.m">
+	<semantic:DetailPage id="page" showNavButton="true" navButtonPress="onNavButtonPress" title="Order Details">
+		<semantic:content>
+			<uxap:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true">
+				<uxap:headerTitle>
+					<uxap:ObjectPageHeader 
+						objectTitle="{parts: ['ShipName']}"
+						objectSubtitle="{path: 'OrderDate', type: 'sap.ui.model.type.Date', formatOptions: {style: 'short'}}">
+					</uxap:ObjectPageHeader>
+				</uxap:headerTitle>
+				<uxap:sections>
+					<uxap:ObjectPageSection>
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection title=" ">
+								<forms:Form width="100%">
+									<forms:layout>
+										<forms:ResponsiveGridLayout/>
+									</forms:layout>
+										<forms:FormContainer id="address" title="Address">
+											<forms:formElements>
+												<forms:FormElement label="Street">
+													<forms:fields>
+														<Text text="{ShipAddress}"/>
+													</forms:fields>
+												</forms:FormElement>
+											</forms:formElements>
+											<forms:formElements>
+												<forms:FormElement label="Postal code / City">
+													<forms:fields>
+														<Text text="{ShipPostalCode}"/>
+														<Text text="{ShipCity}"/>
+													</forms:fields>
+												</forms:FormElement>
+											</forms:formElements>
+											<forms:formElements>
+												<forms:FormElement label="Region">
+													<forms:fields>
+														<Text text="{ShipRegion}"/>
+													</forms:fields>
+												</forms:FormElement>
+											</forms:formElements>
+											<forms:formElements>
+												<forms:FormElement label="Country">
+													<forms:fields>
+														<Text text="{ShipCountry}"/>
+													</forms:fields>
+												</forms:FormElement>
+											</forms:formElements>
+										</forms:FormContainer>
+										<forms:FormContainer id="dates" title="Dates">
+											<forms:formElements>
+												<forms:FormElement label="Order date">
+													<forms:fields>
+														<Text text="{path: 'OrderDate', type: 'sap.ui.model.type.Date', formatOptions: {style: 'short'}}"/>
+													</forms:fields>
+												</forms:FormElement>
+											</forms:formElements>
+											<forms:formElements>
+												<forms:FormElement label="Required date">
+													<forms:fields>
+														<Text text="{path: 'RequiredDate', type: 'sap.ui.model.type.Date', formatOptions: {style: 'medium'}}"/>
+													</forms:fields>
+												</forms:FormElement>
+											</forms:formElements>
+											<forms:formElements>
+												<forms:FormElement label="Shipped date">
+													<forms:fields>
+														<Text text="{path: 'ShippedDate', type: 'sap.ui.model.type.Date', formatOptions: {style: 'long'}}"/>
+													</forms:fields>
+												</forms:FormElement>
+											</forms:formElements>
+										</forms:FormContainer>
+										<forms:FormContainer id="other" title="Others">
+											<forms:formElements>
+												<forms:FormElement label="Freight">
+													<forms:fields>
+														<Text text="{Freight}"/>
+													</forms:fields>
+												</forms:FormElement>
+												<forms:FormElement label="Shipped via">
+													<forms:fields>
+														<Text text="{ShipVia}"/>
+													</forms:fields>
+												</forms:FormElement>
+											</forms:formElements>
+										</forms:FormContainer>
+								</forms:Form>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+				</uxap:sections>
+			</uxap:ObjectPageLayout>			
+		</semantic:content>
+	</semantic:DetailPage>
+</mvc:View>
